@@ -15,7 +15,7 @@ spec:
         app: notifications
     spec:
       containers:
-        - image: us-east4-docker.pkg.dev/chat-youapp-378423/notifications/production
+        - image: us-east4-docker.pkg.dev/nestjs-chat-microservice-378423/notifications/production
           name: notifications
           env:
             - name: PORT

@@ -15,7 +15,7 @@ spec:
         app: auth
     spec:
       containers:
-        - image: us-east4-docker.pkg.dev/chat-youapp-378423/auth/production
+        - image: us-east4-docker.pkg.dev/nestjs-chat-microservice-378423/auth/production
           name: auth
           env:
             - name: MONGODB_URI

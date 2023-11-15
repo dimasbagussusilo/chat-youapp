@@ -17,11 +17,10 @@ import { CurrentUser, JwtAuthGuard, Roles, UserDto } from "@app/common";
 export class ChatsController {
   constructor(private readonly chatsService: ChatsService) {}
 
-  @UseGuards(JwtAuthGuard)
   @Post()
+  @UseGuards(JwtAuthGuard)
   async create(
     @Body() createChatDto: CreateChatDto,
-    // @CurrentUser() user: UserDto,
   ) {
     try {
       return await this.chatsService.create(createChatDto);
@@ -32,8 +31,8 @@ export class ChatsController {
 
   @Get()
   @UseGuards(JwtAuthGuard)
-  async findAll() {
-    return this.chatsService.findAll();
+  async findAll(@CurrentUser() user: UserDto) {
+    return this.chatsService.findAll(user._id);
   }
 
   @Get(":id")
@@ -50,7 +49,7 @@ export class ChatsController {
 
   @Delete(":id")
   @UseGuards(JwtAuthGuard)
-  @Roles("Admin")
+  // @Roles("Admin")
   async remove(@Param("id") id: string) {
     return this.chatsService.remove(id);
   }

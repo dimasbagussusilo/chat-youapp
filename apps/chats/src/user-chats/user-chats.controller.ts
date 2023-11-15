@@ -53,7 +53,7 @@ export class UserChatsController {
 
   @Delete(":id")
   @UseGuards(JwtAuthGuard)
-  @Roles("Admin")
+  // @Roles("Admin")
   async remove(@Param("id") id: string) {
     return this.userChatsService.remove(id);
   }

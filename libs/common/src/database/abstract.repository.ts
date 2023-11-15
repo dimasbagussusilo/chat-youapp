@@ -55,4 +55,8 @@ export abstract class AbstractRepository<TDocument extends AbstractDocument> {
   ): Promise<TDocument> {
     return this.model.findOneAndDelete(filterQuery).lean<TDocument>(true);
   }
+
+  async aggregate(aggregator) {
+    return this.model.aggregate(aggregator)
+  }
 }

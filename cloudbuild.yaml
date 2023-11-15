@@ -5,14 +5,14 @@ steps:
       [
         'build',
         '-t',
-        'us-east4-docker.pkg.dev/chat-youapp-378423/chats/production',
+        'us-east4-docker.pkg.dev/nestjs-chat-microservice-378423/chats/production',
         '-f',
         'apps/chats/Dockerfile',
         '.',
       ]
   - name: 'gcr.io/cloud-builders/docker'
     args:
-      ['push', 'us-east4-docker.pkg.dev/chat-youapp-378423/chats/production']
+      ['push', 'us-east4-docker.pkg.dev/nestjs-chat-microservice-378423/chats/production']
 
   # Auth
   - name: 'gcr.io/cloud-builders/docker'
@@ -20,13 +20,13 @@ steps:
       [
         'build',
         '-t',
-        'us-east4-docker.pkg.dev/chat-youapp-378423/auth/production',
+        'us-east4-docker.pkg.dev/nestjs-chat-microservice-378423/auth/production',
         '-f',
         'apps/auth/Dockerfile',
         '.',
       ]
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'us-east4-docker.pkg.dev/chat-youapp-378423/auth/production']
+    args: ['push', 'us-east4-docker.pkg.dev/nestjs-chat-microservice-378423/auth/production']
 
   # Notifications
   - name: 'gcr.io/cloud-builders/docker'
@@ -34,14 +34,14 @@ steps:
       [
         'build',
         '-t',
-        'us-east4-docker.pkg.dev/chat-youapp-378423/notifications/production',
+        'us-east4-docker.pkg.dev/nestjs-chat-microservice-378423/notifications/production',
         '-f',
         'apps/notifications/Dockerfile',
         '.',
       ]
   - name: 'gcr.io/cloud-builders/docker'
     args:
-      ['push', 'us-east4-docker.pkg.dev/chat-youapp-378423/notifications/production']
+      ['push', 'us-east4-docker.pkg.dev/nestjs-chat-microservice-378423/notifications/production']
 
   # Payments
   - name: 'gcr.io/cloud-builders/docker'
@@ -49,10 +49,10 @@ steps:
       [
         'build',
         '-t',
-        'us-east4-docker.pkg.dev/chat-youapp-378423/payments/production',
+        'us-east4-docker.pkg.dev/nestjs-chat-microservice-378423/payments/production',
         '-f',
         'apps/payments/Dockerfile',
         '.',
       ]
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'us-east4-docker.pkg.dev/chat-youapp-378423/payments/production']
+    args: ['push', 'us-east4-docker.pkg.dev/nestjs-chat-microservice-378423/payments/production']
